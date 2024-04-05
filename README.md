@@ -27,7 +27,7 @@ Your mission encompasses several critical tasks:
 ### 4. **Backend code Testing**:
 - Select a flow within our web application designs provided. Assume that the API was present, Ideate test cases for different states and edge cases.
 - Assume the following API's exist
-### 1. **Invoices API**:
+##### 1. **Invoices API**:
 - **Endpoint**: `GET {{baseUrl}}/invoices/v2?search_value=&invoice_type=all&invoice_status=&sort=id&order=desc&limit=100&offset`
 - **Objective**: Verify the API's ability to retrieve a list of invoices with various filters applied. Ensure the response structure matches the expected format, and test for correct handling of sorting, filtering, and pagination.
 - **Expected Response**:
@@ -79,8 +79,40 @@ Your mission encompasses several critical tasks:
         ]
     }
     ```
+##### 2. **Profile and Wallet API**:
+- **Endpoint**: `GET {{baseUrl}}/profile/v2/wallet`
+- **Objective**: Test the retrieval of the user's profile and wallet information, focusing on KYC and KYB statuses, preferred currency, special activities, and wallet balances across different currencies.
+- **Expected Response**:
+    ```json
+    {
+        "id": 11,
+        "kyc_status": "under_review",
+        "kyb_status": "under_review",
+        ...
+    }
+    ```
 
-### 4. **Bank Account Creation API**:
+##### 3. **Withdrawal API**:
+- **Endpoint**: `POST {{baseUrl}}/invoices/v2/withdraw`
+- **Objective**: Validate the functionality for processing withdrawals, including error handling for conflicts, authorization issues, and non-existent invoices.
+- **Request**:
+    ```json
+    [
+        {
+            "invoice_id": 533,
+            "bank_account_id": 4,
+            "currency": "USD"
+        }
+    ]
+    ```
+- **Expected Response**:
+    ```json
+    {
+        "success": [...],
+        "failure": [...]
+    }
+    ```
+##### 4. **Bank Account Creation API**:
 - **Endpoint**: `POST {{baseUrl}}/profile/v2/billing/bank-accounts`
 - **Objective**: Assess the API's capability to add bank accounts, ensuring all optional and required fields are correctly processed and validated.
 - **Request**:
