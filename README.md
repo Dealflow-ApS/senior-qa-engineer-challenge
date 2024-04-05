@@ -27,136 +27,136 @@ Your mission encompasses several critical tasks:
 ### 4. **Backend code Testing**:
 - Select a flow within our web application designs provided. Assume that the API was present, Ideate test cases for different states and edge cases.
 - Assume the following API's exist
-##### 1. **Invoices API**:
-- **Endpoint**: `GET {{baseUrl}}/invoices/v2?search_value=&invoice_type=all&invoice_status=&sort=id&order=desc&limit=100&offset`
-- **Objective**: Verify the API's ability to retrieve a list of invoices with various filters applied. Ensure the response structure matches the expected format, and test for correct handling of sorting, filtering, and pagination.
-- **Expected Response**:
-    ```json
-    {
-        "total_records": 21,
-        "has_more": false,
-        "data": [
-            {
-                "id": 1054,
-                "invoiced_amount": "1200.0000",
-                "invoiced_currency": "GBP",
-                "invoiced_currency_symbol": "£",
-                "payee_amount": "1200.0000",
-                "payee_currency": "GBP",
-                "payee_currency_symbol": "£",
-                "sent_on": "2024-02-16 22:12:15",
-                "invoice_status": "payout_requested",
-                "invoice_status_display_name": "Payout Requested",
-                "invoice_type": "commission",
-                "invoice_type_display_name": "Commission",
-                "payor_id": 13,
-                "payor_name": "test",
-                "payout_id": 6,
-                "payout_amount": "1403.7500",
-                "payout_currency": "EUR",
-                "payout_currency_symbol": "€"
-            },
-            {
-                "id": 35,
-                "invoiced_amount": "1200.0000",
-                "invoiced_currency": "EUR",
-                "invoiced_currency_symbol": "€",
-                "payee_amount": "1200.0000",
-                "payee_currency": "EUR",
-                "payee_currency_symbol": "€",
-                "sent_on": "2024-01-22 00:00:00",
-                "invoice_status": "declined",
-                "invoice_status_display_name": "Declined",
-                "invoice_type": "recurring_invoice",
-                "invoice_type_display_name": "Recurring invoice",
-                "payor_id": 13,
-                "payor_name": "test",
-                "payout_id": null,
-                "payout_amount": null,
-                "payout_currency": null,
-                "payout_currency_symbol": null
-            }
-        ]
-    }
-    ```
-##### 2. **Profile and Wallet API**:
-- **Endpoint**: `GET {{baseUrl}}/profile/v2/wallet`
-- **Objective**: Test the retrieval of the user's profile and wallet information, focusing on KYC and KYB statuses, preferred currency, special activities, and wallet balances across different currencies.
-- **Expected Response**:
-    ```json
-    {
-        "id": 11,
-        "kyc_status": "under_review",
-        "kyb_status": "under_review",
-        ...
-    }
-    ```
-
-##### 3. **Withdrawal API**:
-- **Endpoint**: `POST {{baseUrl}}/invoices/v2/withdraw`
-- **Objective**: Validate the functionality for processing withdrawals, including error handling for conflicts, authorization issues, and non-existent invoices.
-- **Request**:
-    ```json
-    [
-        {
-            "invoice_id": 533,
-            "bank_account_id": 4,
-            "currency": "USD"
-        }
-    ]
-    ```
-- **Expected Response**:
-    ```json
-    {
-        "success": [...],
-        "failure": [...]
-    }
-    ```
-##### 4. **Bank Account Creation API**:
-- **Endpoint**: `POST {{baseUrl}}/profile/v2/billing/bank-accounts`
-- **Objective**: Assess the API's capability to add bank accounts, ensuring all optional and required fields are correctly processed and validated.
-- **Request**:
-    ```json
-    {
-        "country": "NOR",
-        "account_holder_name": "Mary Doe",
-        "bank_name": "Danske Bank",
-        "account_number": "657567",
-        "currency": "DKK",
-        "is_primary": true,
-        "swift_code": "DABADKKK",
-        "iban": "DK1234567890",
-        "bic": "DABADKKK",
-        "routing_number": "routing_number_sample",
-        "sort_code": "sort_code",
-        "account_type": "Savings",
-        "bank_account_status": "active",
-        "reg_number": "",
-        "clearing_number": "",
-        "financial_institution_number": "",
-        "transit_number": ""
-    }
-    ```
-- **Expected Response**:
-    ```json
-    {
-        "account_number": "1234567890",
-        "bank_name": "Danske Bank",
-        "currency": "DKK",
-        "country": "NOR",
-        "bank_details": {
-            "account_holder_name": "John Doe",
-            "swift_code": "DABADKKK",
-            "iban": "DK1234567890",
-            "routing_number": "routing_number_sample",
-            "sort_code": "sort_code",
-            "account_type": "Savings",
-            "bic": "DABADKKK",
-            "is_primary": true
-        },
-        "bank_account_status": "active"
-    }
-    ```
+	- **Invoices API**:
+	- **Endpoint**: `GET {{baseUrl}}/invoices/v2?search_value=&invoice_type=all&invoice_status=&sort=id&order=desc&limit=100&offset`
+	- **Objective**: Verify the API's ability to retrieve a list of invoices with various filters applied. Ensure the response structure matches the expected format, and test for correct handling of sorting, filtering, and pagination.
+	- **Expected Response**:
+	    ```json
+	    {
+		"total_records": 21,
+		"has_more": false,
+		"data": [
+		    {
+			"id": 1054,
+			"invoiced_amount": "1200.0000",
+			"invoiced_currency": "GBP",
+			"invoiced_currency_symbol": "£",
+			"payee_amount": "1200.0000",
+			"payee_currency": "GBP",
+			"payee_currency_symbol": "£",
+			"sent_on": "2024-02-16 22:12:15",
+			"invoice_status": "payout_requested",
+			"invoice_status_display_name": "Payout Requested",
+			"invoice_type": "commission",
+			"invoice_type_display_name": "Commission",
+			"payor_id": 13,
+			"payor_name": "test",
+			"payout_id": 6,
+			"payout_amount": "1403.7500",
+			"payout_currency": "EUR",
+			"payout_currency_symbol": "€"
+		    },
+		    {
+			"id": 35,
+			"invoiced_amount": "1200.0000",
+			"invoiced_currency": "EUR",
+			"invoiced_currency_symbol": "€",
+			"payee_amount": "1200.0000",
+			"payee_currency": "EUR",
+			"payee_currency_symbol": "€",
+			"sent_on": "2024-01-22 00:00:00",
+			"invoice_status": "declined",
+			"invoice_status_display_name": "Declined",
+			"invoice_type": "recurring_invoice",
+			"invoice_type_display_name": "Recurring invoice",
+			"payor_id": 13,
+			"payor_name": "test",
+			"payout_id": null,
+			"payout_amount": null,
+			"payout_currency": null,
+			"payout_currency_symbol": null
+		    }
+		]
+	    }
+	    ```
+	- **Profile and Wallet API**:
+	- **Endpoint**: `GET {{baseUrl}}/profile/v2/wallet`
+	- **Objective**: Test the retrieval of the user's profile and wallet information, focusing on KYC and KYB statuses, preferred currency, special activities, and wallet balances across different currencies.
+	- **Expected Response**:
+	    ```json
+	    {
+		"id": 11,
+		"kyc_status": "under_review",
+		"kyb_status": "under_review",
+		...
+	    }
+	    ```
+	
+	- **Withdrawal API**:
+	- **Endpoint**: `POST {{baseUrl}}/invoices/v2/withdraw`
+	- **Objective**: Validate the functionality for processing withdrawals, including error handling for conflicts, authorization issues, and non-existent invoices.
+	- **Request**:
+	    ```json
+	    [
+		{
+		    "invoice_id": 533,
+		    "bank_account_id": 4,
+		    "currency": "USD"
+		}
+	    ]
+	    ```
+	- **Expected Response**:
+	    ```json
+	    {
+		"success": [...],
+		"failure": [...]
+	    }
+	    ```
+	- **Bank Account Creation API**:
+	- **Endpoint**: `POST {{baseUrl}}/profile/v2/billing/bank-accounts`
+	- **Objective**: Assess the API's capability to add bank accounts, ensuring all optional and required fields are correctly processed and validated.
+	- **Request**:
+	    ```json
+	    {
+		"country": "NOR",
+		"account_holder_name": "Mary Doe",
+		"bank_name": "Danske Bank",
+		"account_number": "657567",
+		"currency": "DKK",
+		"is_primary": true,
+		"swift_code": "DABADKKK",
+		"iban": "DK1234567890",
+		"bic": "DABADKKK",
+		"routing_number": "routing_number_sample",
+		"sort_code": "sort_code",
+		"account_type": "Savings",
+		"bank_account_status": "active",
+		"reg_number": "",
+		"clearing_number": "",
+		"financial_institution_number": "",
+		"transit_number": ""
+	    }
+	    ```
+	- **Expected Response**:
+	    ```json
+	    {
+		"account_number": "1234567890",
+		"bank_name": "Danske Bank",
+		"currency": "DKK",
+		"country": "NOR",
+		"bank_details": {
+		    "account_holder_name": "John Doe",
+		    "swift_code": "DABADKKK",
+		    "iban": "DK1234567890",
+		    "routing_number": "routing_number_sample",
+		    "sort_code": "sort_code",
+		    "account_type": "Savings",
+		    "bic": "DABADKKK",
+		    "is_primary": true
+		},
+		"bank_account_status": "active"
+	    }
+	    ```
 
 ## Evaluation Criteria
 
