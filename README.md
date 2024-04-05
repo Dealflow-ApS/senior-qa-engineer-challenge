@@ -25,8 +25,7 @@ Your mission encompasses several critical tasks:
 - Select a flow within our web application designs provided. Assume that the code was present, Ideate test cases for different states and edge cases.
 
 ### 4. **Backend code Testing**:
-- Select a flow within our web application designs provided. Assume that the API was present, Ideate test cases for different states and edge cases.
-- Assume the following API's exist
+- Assume the following API's exist, build integration tests
 	- **Invoices API**:
 		- **Endpoint**: `GET {{baseUrl}}/invoices/v2?search_value=&invoice_type=all&invoice_status=&sort=id&order=desc&limit=100&offset`
 		- **Objective**: Verify the API's ability to retrieve a list of invoices with various filters applied. Ensure the response structure matches the expected format, and test for correct handling of sorting, filtering, and pagination.
