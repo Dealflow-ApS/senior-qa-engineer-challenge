@@ -175,7 +175,7 @@ Your submission will be evaluated on the following aspects:
     - Usability testing feedback and suggestions.
     - Automated testing scripts and results, highlighting any identified issues.
 - Create a private GitHub repository for your submission, granting access to the specified usernames.
-  - [siddharthmudgal](https://github.com/siddharthmudgal)
+  	- [siddharthmudgal](https://github.com/siddharthmudgal)
 	- [ahmedemad242](https://github.com/ahmedemad242)
 
 ## Additional Notes
