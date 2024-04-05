@@ -20,6 +20,7 @@ Your mission encompasses several critical tasks:
 
 ### 2. **Usability Testing**:
 - Conduct a thorough usability review of the given workflow (Withdrawal/KYB/C flow). Assess its intuitiveness, ease of navigation, and overall user experience, providing detailed feedback and improvement suggestions.
+- We love to hear suggestions on accessibility and WCAG compliance. 
 
 ### 3. **Automated Testing of a Web App Flow**:
 - Select a flow within our web application designs provided. Assume that the code was present, Ideate test cases for different states and edge cases.
